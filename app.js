@@ -45,18 +45,7 @@ app.get('/', (req, res) => {
     res.send('hello from your task manager');
 })
 
-// Route pour ajouter une tache
-app.post("/tasks-add", async (req, res) => {
-  try {
-    const {title, completed} = req.body;
-    const newTask = await Task.create({
-        title, completed
-    });
-    res.status(201).send(newTask);
-  } catch (err) {
-    res.status(400).send(err);
-  }
-});
+
 
 // Edit task
 app.post("/tasks-edit", async (req, res) => {
