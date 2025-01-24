@@ -60,9 +60,10 @@ app.post("/tasks-add", async (req, res) => {
 
 // Edit task
 app.post("/tasks-edit", async (req, res) => {
+    const { id, title, completed } = req.body;
+
     try {
-      const { id, title, completed } = req.body;
-      // On suppose que l'ID de la tâche à modifier est passé dans le corps de la requête
+
       const updatedTask = await Task.findOneAndUpdate(
         { _id: id },
         { title, completed },
